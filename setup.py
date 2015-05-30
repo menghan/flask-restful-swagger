@@ -17,6 +17,7 @@ setup(name='flask-restful-swagger',
           'static/css/*.*',
           'static/images/*.*',
           'static/lib/*.*',
+          'static/fonts/*.*',
           'static/lib/shred/*.*',
         ]
       },
