@@ -530,12 +530,16 @@ def extract_path_arguments(path):
   def split_arg(arg):
     spl = arg.split(':')
     if len(spl) == 1:
-      return {'name': spl[0],
-              'dataType': 'string',
-              'paramType': 'path'}
+      d = {'name': spl[0],
+           'dataType': 'string'}
     else:
-      return {'name': spl[1],
-              'dataType': spl[0],
-              'paramType': 'path'}
+      d = {'name': spl[1],
+           'dataType': spl[0]}
+    d.update({
+      'description': d['name'],
+      'paramType': 'path',
+      'required': True,
+    })
+    return d
 
   return list(map(split_arg, args))
